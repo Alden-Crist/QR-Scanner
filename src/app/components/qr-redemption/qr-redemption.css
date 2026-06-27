@@ -68,214 +68,495 @@
   margin-bottom: 18px;
 }
 
-/*LEFT PANEL - SCANNER MODE */
-.qr-reader-box {
-  width: 100%;
-  max-width: 380px;
-  border: 3px dashed #5891e8;
-  border-radius: 14px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  overflow: hidden;
-  transition: 0.25s;
-}
+/* ==========================================================
+   Scanner Card
+========================================================== */
 
-#qr-reader {
-  width: 100%;
-  height: 100%;
-}
-
-/* Placeholder state */
-.scanner-placeholder {
-  width: 320px;
-  height: 320px;
-
-  border: 2px dashed #d7e2ee;
-  border-radius: 14px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: #fff;
-
-  margin: auto; /* centers placeholder */
-}
-.scanner-placeholder-icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 18px;
-  background: #eef5ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 42px;
-  color: #106ebe;
-}
-
-.scanner-placeholder-title {
-  margin: 0 0 6px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #1d1b3a;
-}
-
-.scanner-placeholder-text {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #5c6470;
-}
-
-.scanner-instruction {
-  max-width: 380px;
-  margin: 0 auto 22px;
-  font-size: 14px;
-  color: #4b5563;
-  line-height: 1.6;
-}
-
-/* shared card for ready + success */
 .scanner-box {
   background: #f8fbff;
   border: 1px solid #dbe5f1;
   border-radius: 12px;
-  padding: 30px;
-  min-height: 520px;
+  padding: 24px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* instead of center */
-}
 
-/* shared text */
-.scanner-box h4 {
-  margin: 0 0 10px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1d1b3a;
+  gap: 18px;
 }
+/* ==========================================================
+   QR Scanner
+========================================================== */
 
-.scanner-box p {
-  margin: 0 0 24px;
-  font-size: 14px;
-  color: #47455a;
-  line-height: 22px;
-}
+.qr-live-wrapper {
+  position: relative;
 
-/* start scan button */
-.btn-scan {
-  background: #106ebe;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  height: 48px;
-  min-width: 230px;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
+  width: 100%;
+  max-width: 420px;
+  height: 300px;
+
   margin: 0 auto;
-  display: inline-flex;
+}
+
+.qr-live-frame {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border: 3px dashed #4d8dff;
+  border-radius: 18px;
+
+  background: #111;
+
+  position: relative;
+}
+
+#qr-reader,
+#qr-reader video,
+#qr-reader canvas {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================================
+   Overlay
+========================================================== */
+
+.qr-live-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(2px);
+}
+
+/* ==========================================================
+   Ready Card
+========================================================== */
+
+.qr-live-overlay-card {
+  width: 240px;
+  min-height: 180px;
+  padding: 22px 24px;
+
+  border-radius: 20px;
+
+  background: rgba(34, 34, 34, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  cursor: pointer;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.btn-scan:hover {
-  background: #106ebe;
+/* ==========================================================
+   Icon Box
+========================================================== */
+
+.qr-live-icon {
+  width: 68px;
+  height: 68px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 30px;
+
+  margin-bottom: 18px;
+}
+/* ==========================================================
+   Text
+========================================================== */
+
+.qr-live-title {
+  margin: 0 0 10px;
+
+  color: #fff;
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.qr-live-subtitle {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  max-width: 180px;
 }
 
-/* SUCCESS STATE */
+.qr-live-instruction {
+  max-width: 420px;
+
+  margin: 0 auto 24px;
+
+  text-align: center;
+
+  font-size: 14px;
+  color: #4b5563;
+
+  line-height: 1.6;
+}
+
+.qr-live-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================
+   Mobile
+========================================================== */
+
+@media (max-width: 576px) {
+  .qr-live-overlay-card {
+    width: 200px;
+    min-height: 160px;
+    padding: 18px;
+  }
+
+  .qr-live-title {
+    font-size: 22px;
+  }
+
+  .qr-live-subtitle {
+    font-size: 13px;
+  }
+
+  .qr-live-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+  }
+}
+
+/*==================================================
+SUCCESS STATE
+==================================================*/
 
 .success-box {
-  background: #f0fff4;
-  border-color: #ccefd8;
+  flex: 1;
 
-  /* this is the important change */
-  justify-content: flex-start;
+  min-height: 470px;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding-top: 22px;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at top,
+    #f9fffb 0%,
+    #f2fcf7 60%,
+    #edf9f4 100%
+  );
+
+  border: 1px solid #d9f2e5;
 }
+
+/* Decorative Elements */
+
+.success-box::before {
+  content: "";
+
+  position: absolute;
+
+  left: -80px;
+  bottom: -80px;
+
+  width: 240px;
+  height: 240px;
+
+  background: radial-gradient(#bdebcf 2px, transparent 2px);
+
+  background-size: 18px 18px;
+
+  opacity: 0.35;
+
+  transform: rotate(-15deg);
+}
+
+.success-box::after {
+  content: "";
+
+  position: absolute;
+
+  top: -100px;
+  right: -100px;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(34, 197, 94, 0.06);
+}
+
+/*==================================================
+CARD
+==================================================*/
+
+.success-card {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 470px;
+
+  background: #fff;
+
+  border-radius: 20px;
+
+  border: 1px solid #def4e7;
+
+  padding: 34px;
+
+  text-align: center;
+
+  box-shadow:
+    0 16px 35px rgba(16, 185, 129, 0.1),
+    0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+/*==================================================
+ICON
+==================================================*/
 
 .success-icon {
-  width: 72px;
-  height: 72px;
-  border: 4px solid #1dbf43;
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 24px;
+
   border-radius: 50%;
+
+  background: #ecfff4;
+
+  border: 4px solid #22c55e;
+
+  color: #22c55e;
+
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: #1dbf43;
-  font-size: 32px;
-  margin-bottom: 14px;
-  flex-shrink: 0;
+  align-items: center;
+
+  font-size: 44px;
+
+  position: relative;
 }
 
-.success-box h4 {
-  color: #28a745;
-  margin-bottom: 10px;
+.success-icon::before {
+  content: "";
+
+  position: absolute;
+
+  width: 118px;
+  height: 118px;
+
+  border-radius: 50%;
+
+  border: 10px solid rgba(34, 197, 94, 0.08);
 }
 
-.success-box .success-message {
-  color: #535363;
-  max-width: 430px;
-  margin: 0 auto 20px;
+/*==================================================
+TEXT
+==================================================*/
+
+.success-title {
+  margin: 0;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  color: #17984f;
+
+  letter-spacing: -0.5px;
 }
 
-/* scanned item card inside success box */
-.success-item-card {
+.success-subtitle {
+  margin: 18px auto 28px;
+
+  max-width: 330px;
+
+  color: #67756c;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+/*==================================================
+DIVIDER
+==================================================*/
+
+.success-divider {
   width: 100%;
-  max-width: 520px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: #fff;
-  border: 1px solid #d8efd8;
-  border-radius: 8px;
-  padding: 14px 16px;
-  text-align: left;
-  margin-top: auto;
-  /* pushes card nicely toward bottom */
+  height: 1px;
+
+  background: #edf3ef;
+
+  margin-bottom: 24px;
 }
 
-.success-item-icon {
-  width: 34px;
-  height: 34px;
-  border: 2px solid #20bf55;
-  color: #20bf55;
-  border-radius: 6px;
+/*==================================================
+SCANNED ITEM
+==================================================*/
+
+.success-ticket {
   display: flex;
   align-items: center;
+
+  gap: 18px;
+
+  background: #fbfffc;
+
+  border: 1px solid #d9f2e5;
+
+  border-radius: 16px;
+
+  padding: 18px;
+}
+
+.success-ticket-icon {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 14px;
+
+  background: #e9fff2;
+
+  color: #22c55e;
+
+  display: flex;
   justify-content: center;
-  font-size: 16px;
+  align-items: center;
+
+  font-size: 24px;
+
   flex-shrink: 0;
 }
 
-.success-item-details {
-  display: flex;
-  flex-direction: column;
+.success-ticket-content {
+  flex: 1;
+
   min-width: 0;
+
+  text-align: left;
 }
 
-.success-item-label {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 2px;
-  font-weight: 600;
+.success-ticket-label {
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #809086;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 6px;
 }
 
-.success-item-value {
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-  word-break: break-all;
+.success-ticket-value {
+  display: block;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #26352d;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
 }
 
-/* LEFT PANEL - SEARCH MODe */
+/*==================================================
+MOBILE
+==================================================*/
+
+@media (max-width: 576px) {
+  .success-box {
+    padding: 20px;
+  }
+
+  .success-card {
+    padding: 24px;
+  }
+
+  .success-icon {
+    width: 74px;
+    height: 74px;
+
+    font-size: 34px;
+  }
+
+  .success-icon::before {
+    width: 96px;
+    height: 96px;
+  }
+
+  .success-title {
+    font-size: 28px;
+  }
+
+  .success-ticket {
+    padding: 14px;
+  }
+
+  .success-ticket-icon {
+    width: 50px;
+    height: 50px;
+
+    font-size: 20px;
+  }
+}
 
 @media (min-width: 768px) {
   .container {

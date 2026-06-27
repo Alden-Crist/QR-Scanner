@@ -9,77 +9,96 @@
 <div class="row g-3">
   <!-- LEFT -->
   <div class="col-md-7">
-    <!-- SCANNER MODE -->
     <div class="scanner-panel" *ngIf="!isSearchMode">
       <div class="panel-header-row">
         <h3 class="panel-title mb-0">Scanner</h3>
       </div>
-      <!-- READY TO SCAN -->
+
       <div class="scanner-box" *ngIf="!scannedQrItemId">
-        <!-- Placeholder -->
-        <div class="scanner-placeholder" *ngIf="!isScannerRunning">
-          <div class="scanner-placeholder-icon">
-            <i class="fa-solid fa-qrcode"></i>
+        <div class="qr-live-wrapper">
+          <!-- Scanner -->
+          <div id="qr-reader" class="qr-live-frame"></div>
+
+          <!-- Overlay -->
+          <div class="qr-live-overlay" *ngIf="!isScannerRunning">
+            <div class="qr-live-overlay-card">
+              <div class="qr-live-icon">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+
+              <h5 class="qr-live-title">Ready to Scan</h5>
+
+              <p class="qr-live-subtitle">
+                Click Start Scanning to activate your camera.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Camera -->
-        <div
-          id="qr-reader"
-          class="qr-reader-box"
-          [style.display]="isScannerRunning ? 'block' : 'none'"
-        ></div>
-
-        <p class="scanner-instruction">
+        <p class="qr-live-instruction">
           {{
             isScannerRunning
               ? "Point the camera at the QR code and keep it inside the frame."
-              : "Click the button below to start scanning."
+              : "Scanner is ready. Click Start Scanning to begin."
           }}
         </p>
 
-        <button
-          *ngIf="!isScannerRunning"
-          class="btn-scan"
-          (click)="startScanning()"
-        >
-          <i class="fa fa-camera"></i>
-          Start Scanning
-        </button>
+        <div class="qr-live-actions">
+          <button
+            *ngIf="!isScannerRunning"
+            class="btn-scan"
+            (click)="startScanning()"
+          >
+            <i class="fa-solid fa-camera"></i>
+            Start Scanning
+          </button>
 
-        <button
-          *ngIf="isScannerRunning"
-          class="btn btn-outline-secondary"
-          (click)="stopScanning()"
-        >
-          <i class="fa fa-stop"></i>
-          Stop Scanning
-        </button>
-      </div>
-      <!-- SUCCESS -->
-      <div class="scanner-box success-box" *ngIf="scannedQrItemId">
-        <div class="success-icon">
-          <i class="fa fa-check"></i>
+          <button
+            *ngIf="isScannerRunning"
+            class="btn btn-outline-secondary"
+            (click)="stopScanning()"
+          >
+            <i class="fa-solid fa-stop"></i>
+            Stop Scanning
+          </button>
         </div>
-        <h4>Scan Successful!</h4>
-        <p class="success-message">
-          QR code scanned successfully. Ticket details are shown on the right.
-        </p>
-        <div class="success-item-card">
-          <div class="success-item-icon">
-            <i class="fa fa-id-card"></i>
+      </div>
+
+      <div class="scanner-box success-box" *ngIf="scannedQrItemId">
+        <div class="success-card">
+          <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
           </div>
-          <div class="success-item-details">
-            <span class="success-item-label">Scanned Item ID</span>
-            <span class="success-item-value">{{ scannedQrItemId }}</span>
+
+          <h3 class="success-title">Scan Successful</h3>
+
+          <p class="success-subtitle">
+            The QR code has been scanned successfully. Ticket details are now
+            available in the validation panel.
+          </p>
+
+          <div class="success-divider"></div>
+
+          <div class="success-ticket">
+            <div class="success-ticket-icon">
+              <i class="fa-solid fa-id-card"></i>
+            </div>
+
+            <div class="success-ticket-content">
+              <span class="success-ticket-label"> Scanned Item ID </span>
+
+              <span class="success-ticket-value" [title]="scannedQrItemId">
+                {{ scannedQrItemId }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- SEARCH MODE -->
   </div>
   <div class="col-md-5">
     <div class="validation-panel"></div>
   </div>
+
   <!-- RIGHT -->
 </div>

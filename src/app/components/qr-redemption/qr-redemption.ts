@@ -79,8 +79,8 @@ export class QrRedemption implements OnInit, OnDestroy {
           {
             fps: 20,
             qrbox: {
-              width: 250,
-              height: 250,
+              width: 350,
+              height: 290,
             },
           },
           async (decodedText: string) => {
@@ -267,7 +267,7 @@ export class QrRedemption implements OnInit, OnDestroy {
         console.log('✅ Scanner UI cleared.');
 
         // Destroy the scanner instance
-        //this.html5QrCode = null;
+        this.html5QrCode = null;
       } else {
         console.warn('stopScanning skipped.');
         console.log('html5QrCode exists:', !!this.html5QrCode);
