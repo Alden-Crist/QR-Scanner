@@ -72,16 +72,12 @@
 .qr-reader-box {
   width: 100%;
   max-width: 380px;
-
   border: 3px dashed #5891e8;
   border-radius: 14px;
-
   background: #fff;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 20px;
   overflow: hidden;
   transition: 0.25s;
@@ -111,19 +107,15 @@
 .scanner-placeholder-icon {
   width: 90px;
   height: 90px;
-
   border-radius: 18px;
-
   background: #eef5ff;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 42px;
-
   color: #106ebe;
 }
+
 .scanner-placeholder-title {
   margin: 0 0 6px;
   font-size: 15px;
@@ -140,24 +132,19 @@
 
 .scanner-instruction {
   max-width: 380px;
-
   margin: 0 auto 22px;
-
   font-size: 14px;
-
   color: #4b5563;
-
   line-height: 1.6;
 }
+
 /* shared card for ready + success */
 .scanner-box {
   background: #f8fbff;
   border: 1px solid #dbe5f1;
   border-radius: 12px;
-
-  min-height: 520px;
   padding: 30px;
-
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   align-items: center;

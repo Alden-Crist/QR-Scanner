@@ -267,7 +267,7 @@ export class QrRedemption implements OnInit, OnDestroy {
         console.log('✅ Scanner UI cleared.');
 
         // Destroy the scanner instance
-        this.html5QrCode = null;
+        //this.html5QrCode = null;
       } else {
         console.warn('stopScanning skipped.');
         console.log('html5QrCode exists:', !!this.html5QrCode);
@@ -309,7 +309,9 @@ export class QrRedemption implements OnInit, OnDestroy {
   }
 
   async resetValidationState() {
-    await this.stopScanning();
+    if (this.isScannerRunning) {
+      await this.stopScanning();
+    }
 
     this.scannedQrItemId = '';
     this.scanCompleted = false;
