@@ -71,31 +71,29 @@
 /*LEFT PANEL - SCANNER MODE */
 .qr-reader-box {
   width: 100%;
-  max-width: 320px;
+  max-width: 450px;
 
   aspect-ratio: 1;
 
-  /* border: 2px dashed #d7dfeb;
-  border-radius: 14px; */
+  border: 2px dashed #d7dfeb;
+  border-radius: 14px;
 
-  /* background: #fff; */
+  background: #fff;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  overflow: hidden;
 
   margin-bottom: 20px;
 
   transition: 0.25s;
 }
 
-/* .qr-reader-box.scanning {
+.qr-reader-box.scanning {
   border: 1px solid #dbe4f0;
   background: #fff;
   padding: 8px;
-} */
+}
 
 #qr-reader {
   width: 100%;
@@ -149,9 +147,15 @@
 }
 
 .scanner-instruction {
-  width: 100%;
-  text-align: center;
+  max-width: 380px;
+
   margin: 0 auto 22px;
+
+  font-size: 14px;
+
+  color: #4b5563;
+
+  line-height: 1.6;
 }
 /* shared card for ready + success */
 .scanner-box {
