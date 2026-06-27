@@ -6,7 +6,7 @@
     </button>
   </div>
 </div>
-<div class="row">
+<div class="row g-3">
   <!-- LEFT -->
   <div class="col-md-7">
     <!-- SCANNER MODE -->
@@ -16,37 +16,40 @@
       </div>
       <!-- READY TO SCAN -->
       <div class="scanner-box" *ngIf="!scannedQrItemId">
-        <div class="qr-reader-box" [class.scanning]="isScannerRunning">
-          <!-- Placeholder before camera starts -->
-          <div class="scanner-placeholder" *ngIf="!isScannerRunning">
-            <div class="scanner-placeholder-icon">
-              <i class="fa fa-qrcode"></i>
-            </div>
+        <!-- Placeholder -->
+        <div class="scanner-placeholder" *ngIf="!isScannerRunning">
+          <div class="scanner-placeholder-icon">
+            <i class="fa-solid fa-qrcode"></i>
           </div>
-          <!-- Actual scanner -->
-          <div id="qr-reader"></div>
         </div>
-        <p class="scanner-instruction" *ngIf="!isScannerRunning">
-          Click the button below to start scanning.
+
+        <!-- Camera -->
+        <div
+          id="qr-reader"
+          class="qr-reader-box"
+          [style.display]="isScannerRunning ? 'block' : 'none'"
+        ></div>
+
+        <p class="scanner-instruction">
+          {{
+            isScannerRunning
+              ? "Point the camera at the QR code and keep it inside the frame."
+              : "Click the button below to start scanning."
+          }}
         </p>
-        <p class="scanner-instruction" *ngIf="isScannerRunning">
-          Point the camera at the QR code and keep it inside the frame.
-        </p>
-        <div class="button_tooltip d-inline-block">
-          <button
-            type="button"
-            class="btn-scan"
-            *ngIf="!isScannerRunning"
-            (click)="startScanning()"
-          >
-            <i class="fa fa-camera"></i>
-            Start Scanning
-          </button>
-        </div>
+
         <button
-          type="button"
-          class="btn btn-outline-secondary mt-2"
+          *ngIf="!isScannerRunning"
+          class="btn-scan"
+          (click)="startScanning()"
+        >
+          <i class="fa fa-camera"></i>
+          Start Scanning
+        </button>
+
+        <button
           *ngIf="isScannerRunning"
+          class="btn btn-outline-secondary"
           (click)="stopScanning()"
         >
           <i class="fa fa-stop"></i>
@@ -74,6 +77,9 @@
       </div>
     </div>
     <!-- SEARCH MODE -->
+  </div>
+  <div class="col-md-5">
+    <div class="validation-panel"></div>
   </div>
   <!-- RIGHT -->
 </div>
