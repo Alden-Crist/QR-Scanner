@@ -71,7 +71,8 @@ export class QrRedemption implements OnInit, OnDestroy {
       try {
         console.log('Trying Environment (Back) Camera...');
 
-        // this.cdr.detectChanges();
+        this.isScannerRunning = true;
+        this.cdr.detectChanges();
         console.time('QR Detection Time');
         await this.html5QrCode.start(
           { facingMode: 'environment' },
@@ -126,7 +127,7 @@ export class QrRedemption implements OnInit, OnDestroy {
             });
           }
         }, 1000);
-        this.isScannerRunning = true;
+
         return;
       } catch (facingModeError) {
         console.warn('❌ Environment camera failed.', facingModeError);
@@ -169,7 +170,8 @@ export class QrRedemption implements OnInit, OnDestroy {
 
       console.log('Starting Camera ID:', cameraId);
 
-      // this.cdr.detectChanges();
+      this.isScannerRunning = true;
+      this.cdr.detectChanges();
 
       console.time('QR Detection Time');
       await this.html5QrCode.start(
@@ -223,8 +225,6 @@ export class QrRedemption implements OnInit, OnDestroy {
           });
         }
       }, 1000);
-
-      this.isScannerRunning = true;
     } catch (error: any) {
       console.error('Scanner Start Error:', error);
 
