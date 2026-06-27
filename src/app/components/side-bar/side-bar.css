@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.sidebar {
+  width: 240px;
+  height: calc(100vh - 64px);
+
+  background: #ffffff;
+
+  border-right: 1px solid #dfe3e8;
+
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.menu {
+  padding-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  background: #f4f8fd;
+}
+
+.menu-item.active {
+  background: #106ebe;
+
+  color: white;
+
+  border-left: 4px solid #083b6d;
+}
+
+.menu-item span:first-child {
+  font-size: 20px;
+}

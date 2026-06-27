@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>QR Scanner</h2>
+
+  <div class="button-group">
+    <button (click)="startScanning()">Start Scanner</button>
+
+    <button (click)="stopScanning()">Stop Scanner</button>
+  </div>
+
+  <div id="qr-reader"></div>
+
+  <div class="result">
+    <h4>Scanned Result</h4>
+
+    <p>{{ scannedText || "No QR scanned yet" }}</p>
+  </div>
+</div>

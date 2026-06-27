@@ -1,0 +1,75 @@
+<div class="qr-section">
+  <h5 class="mb-3">Select QR Type to Scan</h5>
+  <button type="button" (click)="clearScan()">Clear</button>
+</div>
+<div class="row">
+  <!-- LEFT -->
+  <div class="col-md-7">
+    <!-- SCANNER MODE -->
+    <div class="scanner-panel" *ngIf="!isSearchMode">
+      <div class="panel-header-row">
+        <h3 class="panel-title mb-0">Scanner</h3>
+      </div>
+      <!-- READY TO SCAN -->
+      <div class="scanner-box" *ngIf="!scannedQrItemId">
+        <div class="qr-reader-box" [class.scanning]="isScannerRunning">
+          <!-- Placeholder before camera starts -->
+          <div class="scanner-placeholder" *ngIf="!isScannerRunning">
+            <div class="scanner-placeholder-icon">
+              <i class="fa fa-qrcode"></i>
+            </div>
+          </div>
+          <!-- Actual scanner -->
+          <div id="qr-reader"></div>
+        </div>
+        <p class="scanner-instruction" *ngIf="!isScannerRunning">
+          Click the button below to start scanning.
+        </p>
+        <p class="scanner-instruction" *ngIf="isScannerRunning">
+          Point the camera at the QR code and keep it inside the frame.
+        </p>
+        <div class="button_tooltip d-inline-block">
+          <button
+            type="button"
+            class="btn-scan"
+            *ngIf="!isScannerRunning"
+            (click)="startScanning()"
+          >
+            <i class="fa fa-camera"></i>
+            Start Scanning
+          </button>
+        </div>
+        <button
+          type="button"
+          class="btn btn-outline-secondary mt-2"
+          *ngIf="isScannerRunning"
+          (click)="stopScanning()"
+        >
+          <i class="fa fa-stop"></i>
+          Stop Scanning
+        </button>
+      </div>
+      <!-- SUCCESS -->
+      <div class="scanner-box success-box" *ngIf="scannedQrItemId">
+        <div class="success-icon">
+          <i class="fa fa-check"></i>
+        </div>
+        <h4>Scan Successful!</h4>
+        <p class="success-message">
+          QR code scanned successfully. Ticket details are shown on the right.
+        </p>
+        <div class="success-item-card">
+          <div class="success-item-icon">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <div class="success-item-details">
+            <span class="success-item-label">Scanned Item ID</span>
+            <span class="success-item-value">{{ scannedQrItemId }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SEARCH MODE -->
+  </div>
+  <!-- RIGHT -->
+</div>

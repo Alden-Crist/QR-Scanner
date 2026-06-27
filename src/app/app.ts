@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TopBar } from './components/top-bar/top-bar';
+
+import { QrRedemption } from './components/qr-redemption/qr-redemption';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [TopBar, QrRedemption],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected title = 'QR_Scanner';
+  title = 'QR_Scanner';
 }
