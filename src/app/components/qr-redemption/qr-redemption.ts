@@ -293,7 +293,7 @@ export class QrRedemption implements OnInit, OnDestroy {
     // Simulate successful validation
     this.scanCompleted = true;
 
-    this.scannedQrItemId = 'f3l4j3-43334343-43434343-34343';
+    this.scannedQrItemId = qrPayload;
 
     this.validationMessage = 'Ticket is valid for redemption.';
 

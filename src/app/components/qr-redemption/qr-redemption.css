@@ -262,27 +262,26 @@
     font-size: 26px;
   }
 }
-
 /*==================================================
 SUCCESS STATE
 ==================================================*/
 
 .success-box {
   flex: 1;
-
   min-height: 470px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  width: 100%;
+
   padding: 30px;
 
-  border-radius: 12px;
-
   position: relative;
-
   overflow: hidden;
+
+  border-radius: 12px;
 
   background: radial-gradient(
     circle at top,
@@ -292,13 +291,15 @@ SUCCESS STATE
   );
 
   border: 1px solid #d9f2e5;
+  box-sizing: border-box;
 }
 
-/* Decorative Elements */
+/*==================================================
+DECORATION
+==================================================*/
 
 .success-box::before {
   content: "";
-
   position: absolute;
 
   left: -80px;
@@ -308,17 +309,14 @@ SUCCESS STATE
   height: 240px;
 
   background: radial-gradient(#bdebcf 2px, transparent 2px);
-
   background-size: 18px 18px;
 
   opacity: 0.35;
-
   transform: rotate(-15deg);
 }
 
 .success-box::after {
   content: "";
-
   position: absolute;
 
   top: -100px;
@@ -346,12 +344,13 @@ CARD
   background: #fff;
 
   border-radius: 20px;
-
   border: 1px solid #def4e7;
 
   padding: 34px;
 
   text-align: center;
+
+  box-sizing: border-box;
 
   box-shadow:
     0 16px 35px rgba(16, 185, 129, 0.1),
@@ -371,15 +370,13 @@ ICON
   border-radius: 50%;
 
   background: #ecfff4;
-
   border: 4px solid #22c55e;
-
-  color: #22c55e;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  color: #22c55e;
   font-size: 44px;
 
   position: relative;
@@ -394,7 +391,6 @@ ICON
   height: 118px;
 
   border-radius: 50%;
-
   border: 10px solid rgba(34, 197, 94, 0.08);
 }
 
@@ -405,12 +401,10 @@ TEXT
 .success-title {
   margin: 0;
 
-  font-size: 34px;
-
-  font-weight: 700;
-
   color: #17984f;
 
+  font-size: 34px;
+  font-weight: 700;
   letter-spacing: -0.5px;
 }
 
@@ -422,7 +416,6 @@ TEXT
   color: #67756c;
 
   font-size: 15px;
-
   line-height: 1.7;
 }
 
@@ -434,9 +427,9 @@ DIVIDER
   width: 100%;
   height: 1px;
 
-  background: #edf3ef;
-
   margin-bottom: 24px;
+
+  background: #edf3ef;
 }
 
 /*==================================================
@@ -446,26 +439,28 @@ SCANNED ITEM
 .success-ticket {
   display: flex;
   align-items: center;
-
   gap: 18px;
 
-  background: #fbfffc;
-
-  border: 1px solid #d9f2e5;
-
-  border-radius: 16px;
+  width: 100%;
 
   padding: 18px;
+
+  background: #fbfffc;
+  border: 1px solid #d9f2e5;
+  border-radius: 16px;
+
+  box-sizing: border-box;
 }
 
 .success-ticket-icon {
   width: 58px;
   height: 58px;
 
+  flex-shrink: 0;
+
   border-radius: 14px;
 
   background: #e9fff2;
-
   color: #22c55e;
 
   display: flex;
@@ -473,48 +468,64 @@ SCANNED ITEM
   align-items: center;
 
   font-size: 24px;
-
-  flex-shrink: 0;
 }
 
 .success-ticket-content {
   flex: 1;
-
   min-width: 0;
-
   text-align: left;
 }
 
 .success-ticket-label {
   display: block;
 
-  font-size: 11px;
-
-  font-weight: 700;
+  margin-bottom: 6px;
 
   color: #809086;
 
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 700;
 
   text-transform: uppercase;
-
-  margin-bottom: 6px;
+  letter-spacing: 0.12em;
 }
 
 .success-ticket-value {
   display: block;
 
-  font-size: 15px;
-
-  font-weight: 700;
-
   color: #26352d;
 
-  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
 
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
 
-  text-overflow: ellipsis;
+/*==================================================
+TABLET
+==================================================*/
+
+@media (max-width: 991px) {
+  .success-box {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .success-card {
+    max-width: 100%;
+    padding: 28px;
+  }
+
+  .success-title {
+    font-size: 30px;
+  }
+
+  .success-subtitle {
+    max-width: 100%;
+  }
 }
 
 /*==================================================
@@ -523,27 +534,104 @@ MOBILE
 
 @media (max-width: 576px) {
   .success-box {
-    padding: 20px;
+    min-height: auto;
+    padding: 16px;
   }
 
   .success-card {
-    padding: 24px;
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 18px;
+    border-radius: 16px;
   }
 
   .success-icon {
-    width: 74px;
-    height: 74px;
+    width: 68px;
+    height: 68px;
 
-    font-size: 34px;
+    margin-bottom: 18px;
+
+    font-size: 30px;
   }
 
   .success-icon::before {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
+    border-width: 8px;
   }
 
   .success-title {
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .success-subtitle {
+    max-width: 100%;
+    margin: 14px 0 20px;
+
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .success-divider {
+    margin-bottom: 18px;
+  }
+
+  .success-ticket {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .success-ticket-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 22px;
+  }
+
+  .success-ticket-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .success-ticket-label {
+    font-size: 11px;
+  }
+
+  .success-ticket-value {
+    font-size: 14px;
+  }
+}
+
+/*==================================================
+SMALL DEVICES
+==================================================*/
+
+@media (max-width: 360px) {
+  .success-card {
+    padding: 18px 14px;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+  }
+
+  .success-icon::before {
+    width: 76px;
+    height: 76px;
+  }
+
+  .success-title {
+    font-size: 20px;
+  }
+
+  .success-subtitle {
+    font-size: 13px;
   }
 
   .success-ticket {
@@ -551,13 +639,15 @@ MOBILE
   }
 
   .success-ticket-icon {
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
 
-    font-size: 20px;
+  .success-ticket-value {
+    font-size: 13px;
   }
 }
-
 @media (min-width: 768px) {
   .container {
     max-width: 100% !important;
